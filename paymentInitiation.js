@@ -5,14 +5,17 @@ const router = express.Router();
 
 const MID = "OUEept11459745037985";
 const MKEY = "1Ihx&s#y1St!Dk0m";
-
+const generateOrderId = () => {
+    // Logic to generate a unique order ID (you can use a library or custom logic)
+    return 'ORDER_' + Math.floor(Math.random() * 1000000);
+  };
 router.post('/start_payment', (req, res) => {
     // Your logic to handle payment initiation
 
     // Sample logic to generate a response with Paytm parameters
     const param_dict = {
         'MID': MID,
-        'ORDER_ID': 'YOUR_ORDER_ID',
+        'ORDER_ID': generateOrderId(),
         'TXN_AMOUNT': '10.00',
         'CUST_ID': 'CUSTOMER_ID',
         'INDUSTRY_TYPE_ID': 'Retail',

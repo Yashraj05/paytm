@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documet</title>
+</head>
+<body>
+    <button onclick='getPayment()'>paytm</button>
+</body>
+</html>
+<script>
+    async function getPayment()
+    {
+        console.log("yes");
+        const ans = await fetch('https://paytm-production-76ac.up.railway.app/api/payment/start_payment',{
+            method: "POST",
+        })
+        console.log({ans});
+    }
+    
+</script>

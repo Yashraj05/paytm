@@ -33,7 +33,7 @@ params['INDUSTRY_TYPE_ID'] ='Retail',
 params['ORDER_ID'] =generateOrderId(),
 params['CUST_ID'] ='CUSTOMER_ID',
 params['TXN_AMOUNT'] = '10.00',
-params['CALLBACK_URL'] ='https://paytm-production-76ac.up.railway.app/api/payment/handle_payment'
+params['CALLBACK_URL'] ='https://maddening-face-production.up.railway.app/api/payment/handle_payment'
     // Generate checksum using PaytmChecksum library
     PaytmChecksum.generateSignature(params, MKEY)
         .then(checksum => {

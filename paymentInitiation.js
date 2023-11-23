@@ -13,7 +13,7 @@ router.post('/start_payment', (req, res) => {
     const param_dict = {
         'MID': MID,
         'ORDER_ID': 'YOUR_ORDER_ID',
-        'TXN_AMOUNT': '10',
+        'TXN_AMOUNT': '10.00',
         'CUST_ID': 'CUSTOMER_ID',
         'INDUSTRY_TYPE_ID': 'Retail',
         'WEBSITE': 'WEBSTAGING',

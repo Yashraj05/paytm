@@ -10,7 +10,7 @@ router.post('/handle_payment', (req, res) => {
 
     // Sample logic to handle the payment response and verify checksum
     const form = req.params;
-    console.log(form);
+    res.send(req.body);
     let checksum = '';
     let response_dict = {};
 
@@ -23,21 +23,21 @@ router.post('/handle_payment', (req, res) => {
 
     const verify = PaytmChecksum.verifySignature(JSON.stringify(response_dict), MKEY, checksum);
 
-    if (verify) {
-        // Logic for handling successful payment
-        if (response_dict['RESPCODE'] === '01') {
-            console.log('Payment successful');
-            // Handle the order status update or other actions for a successful payment
-            res.redirect('/success'); // Redirect to a success page
-        } else {
-            console.log('Payment failed:', response_dict['RESPMSG']);
-            // Handle the order status update or other actions for a failed payment
-            res.redirect('/failed'); // Redirect to a failure page
-        }
-    } else {
-        console.log('Checksum verification failed');
-        res.status(400).send('Checksum verification failed'); // Send an error response
-    }
+    // if (verify) {
+    //     // Logic for handling successful payment
+    //     if (response_dict['RESPCODE'] === '01') {
+    //         console.log('Payment successful');
+    //         // Handle the order status update or other actions for a successful payment
+    //         res.redirect('/success'); // Redirect to a success page
+    //     } else {
+    //         console.log('Payment failed:', response_dict['RESPMSG']);
+    //         // Handle the order status update or other actions for a failed payment
+    //         res.redirect('/failed'); // Redirect to a failure page
+    //     }
+    // } else {
+    //     console.log('Checksum verification failed');
+    //     res.status(400).send('Checksum verification failed'); // Send an error response
+    // }
 });
 
 export default router;

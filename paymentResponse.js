@@ -10,7 +10,7 @@ router.post('/handle_payment', (req, res) => {
 
     // Sample logic to handle the payment response and verify checksum
     const form = req.params;
-    res.send("the data is ",req.body);
+    res.send(req.body);
     let checksum = '';
     let response_dict = {};
 

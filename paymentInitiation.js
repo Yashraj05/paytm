@@ -21,7 +21,7 @@ router.post('/start_payment', (req, res) => {
         'INDUSTRY_TYPE_ID': 'Retail',
         'WEBSITE': 'WEBSTAGING',
         'CHANNEL_ID': 'WEB',
-        'CALLBACK_URL': 'https://paytm-production-76ac.up.railway.app/api/payment/handle_payment',
+        'CALLBACK_URL': 'https://maddening-face-production.up.railway.app/api/payment/handle_payment',
     };
     var params = {};
 

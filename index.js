@@ -2,7 +2,7 @@ import express from 'express';
 import paymentInitiationRouter from './paymentInitiation.js';
 import paymentResponseRouter from './paymentResponse.js';
 import cors from 'cors';
-
+app.use(cors());
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 // Use routers
 app.use('/api/payment', paymentInitiationRouter);
 app.use('/api/payment', paymentResponseRouter);
-app.use(cors());
+
 
 
 const PORT = process.env.PORT || 3000;

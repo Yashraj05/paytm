@@ -35,11 +35,13 @@ params['CUST_ID'] ='CUSTOMER_ID',
 params['TXN_AMOUNT'] = '10.00',
 params['CALLBACK_URL'] ='https://maddening-face-production.up.railway.app/api/payment/handle_payment'
     // Generate checksum using PaytmChecksum library
+    const body = {"mid":"OUEept11459745037985","websiteName":"WEBSTAGING","orderId":"ORDERIDHERE","txnAmount":{"value":"10.00","currency":"INR"},"userInfo":{"custId":"CUSTOMERID_HERE"},"callbackUrl":"https://maddening-face-production.up.railway.app/api/payment/handle_payment", "requestType":"Payment"}
+   
     PaytmChecksum.generateSignature(params, MKEY)
         .then(checksum => {
-            param_dict['CHECKSUMHASH'] = checksum;
+            params['CHECKSUMHASH'] = checksum;
             // Sending the generated param_dict to the frontend
-            res.json({ 'param_dict': param_dict });
+            res.json({ 'param_dict': params });
         })
         .catch(error => {
             console.error('Error during checksum generation:', error);

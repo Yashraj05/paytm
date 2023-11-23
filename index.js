@@ -3,6 +3,8 @@ import paymentInitiationRouter from './paymentInitiation.js';
 import paymentResponseRouter from './paymentResponse.js';
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Use routers
 app.use('/api/payment', paymentInitiationRouter);

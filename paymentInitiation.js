@@ -23,9 +23,19 @@ router.post('/start_payment', (req, res) => {
         'CHANNEL_ID': 'WEB',
         'CALLBACK_URL': 'https://paytm-production-76ac.up.railway.app/api/payment/handle_payment',
     };
+    var params = {};
 
+/* initialize an array */
+params['MID'] = MID,
+params['WEBSITE'] ='WEBSTAGING',
+params['CHANNEL_ID'] ='WEB',
+params['INDUSTRY_TYPE_ID'] ='Retail',
+params['ORDER_ID'] =generateOrderId(),
+params['CUST_ID'] ='CUSTOMER_ID',
+params['TXN_AMOUNT'] = '10.00',
+params['CALLBACK_URL'] ='https://paytm-production-76ac.up.railway.app/api/payment/handle_payment'
     // Generate checksum using PaytmChecksum library
-    PaytmChecksum.generateSignature(JSON.stringify(param_dict), MKEY)
+    PaytmChecksum.generateSignature(params, MKEY)
         .then(checksum => {
             param_dict['CHECKSUMHASH'] = checksum;
             // Sending the generated param_dict to the frontend
